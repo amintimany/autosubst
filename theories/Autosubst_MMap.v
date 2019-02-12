@@ -152,7 +152,8 @@ Ltac derive_MMapLemmas := constructor;
 Hint Extern 0 (MMapLemmas _ _) => derive_MMapLemmas : derive.
 
 Ltac derive_MMapExt :=
-  intros ???; fix 1; destruct 0; simpl; f_equal; auto using mmap_ext.
+  intros ???; let f := fresh in fix f 1; destruct 0; simpl; f_equal;
+    auto using mmap_ext.
 Hint Extern 0 (MMapExt _ _) => derive_MMapExt : derive.
 
 (* Local Variables: *)

@@ -22,11 +22,11 @@ Global Instance MMapExt_option : MMapExt A (option B). derive. Defined.
 
 Global Instance MMap_list : MMap A (list B). derive. Defined.
 Global Instance MMapLemmas_list : MMapLemmas A (list B). derive. Qed.
-Global Instance MMapExt_list : MMapExt A (list B). derive. Defined.
+(* Global Instance MMapExt_list : MMapExt A (list B). derive. Defined. *)
 
 Global Instance MMap_pair : MMap A (B * C). derive. Defined.
 Global Instance MMapLemmas_pair : MMapLemmas A (B * C). derive. Qed.
-Global Instance MMapExt_pair : MMapExt A (B * C). derive. Defined.
+(* Global Instance MMapExt_pair : MMapExt A (B * C). derive. Defined. *)
 
 Global Instance MMap_fun : MMap A (B -> C) := fun f g x => mmap f (g x).
 
