@@ -147,13 +147,17 @@ Ltac derive_MMap :=
 Hint Extern 0 (MMap _ _) => derive_MMap : derive.
 
 Ltac derive_MMapLemmas := constructor;
-  [ induction 0; simpl; f_equal; trivial; apply mmap_id
-  | intros f g; induction 0; simpl; f_equal; trivial; apply mmap_comp ].
+  [ match goal with |- forall z : _, _ => induction z end;
+    simpl; f_equal; trivial; apply mmap_id
+  | intros f g; match goal with |- forall z : _, _ => induction z end; simpl; f_equal;
+    trivial; apply mmap_comp ].
 Hint Extern 0 (MMapLemmas _ _) => derive_MMapLemmas : derive.
 
 Ltac derive_MMapExt :=
-  intros ???; let f := fresh in fix f 1; destruct 0; simpl; f_equal;
-    auto using mmap_ext.
+  intros ???;
+    let f := fresh in
+      fix f 1; match goal with |- forall z : _, _ => destruct z end; simpl; f_equal;
+      auto using mmap_ext.
 Hint Extern 0 (MMapExt _ _) => derive_MMapExt : derive.
 
 (* Local Variables: *)
