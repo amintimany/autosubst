@@ -1,9 +1,11 @@
 *.vo
 *.glob
-*.v.d
+*.d
 *.coq
 doc/*
 .DS_Store
 *.aux
 Makefile.coq.conf
 .coqdeps.d
+*.vos
+*.vok
